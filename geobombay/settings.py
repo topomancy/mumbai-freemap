@@ -21,7 +21,7 @@ DATA_DIR = os.path.join(BASE_DIR, 'data')
 try:
     SECRET_KEY
 except NameError:
-    SECRET_FILE = os.path.join(PROJECT_ROOT, 'secret.txt')
+    SECRET_FILE = os.path.join(BASE_DIR, 'secret.txt')
     try:
         SECRET_KEY = open(SECRET_FILE).read().strip()
     except IOError:
