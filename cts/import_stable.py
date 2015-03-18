@@ -1,7 +1,8 @@
 #Usage:
 # python manage.py shell
 # import import_stable as i
-# i.importStable(1, "Fort")
+# i.importStables()
+# Expects stable JSON data to be in a data/ folder or wherever settings.DATA_DIR is
 
 from cts.models import *
 from os.path import join
