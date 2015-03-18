@@ -12,7 +12,7 @@ from django.conf import settings
 JSON_DIR = settings.DATA_DIR
 
 def importStables():
-    for i in range(1,16):
+    for i in range(1,20):
         filename = join(JSON_DIR, "JSONforStable%d.json" % i)
         data = json.load(open(filename))
         stable_name = data[0]['division']
