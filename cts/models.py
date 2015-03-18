@@ -40,3 +40,4 @@ class Stable(models.Model):
 
     class Meta:
         ordering = ['stable_id']
+        verbose_name = 'Division'
