@@ -18,8 +18,22 @@ DATA_DIR = os.path.join(BASE_DIR, 'data')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'uo3-20!_^jo&2hu(lqtp=rh5%g)o^#to(-pk!fyrk#6dmh50y#'
+try:
+    SECRET_KEY
+except NameError:
+    SECRET_FILE = os.path.join(PROJECT_ROOT, 'secret.txt')
+    try:
+        SECRET_KEY = open(SECRET_FILE).read().strip()
+    except IOError:
+        try:
+            from random import choice
+            SECRET_KEY = ''.join([choice('abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)') for i in range(50)])
+            secret = file(SECRET_FILE, 'w')
+            secret.write(SECRET_KEY)
+            secret.close()
+        except IOError:
+            Exception('Please create a %s file with random characters to generate your secret key!' % SECRET_FILE)
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -86,3 +100,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+try:
+    from local_settings import *
+except:
+    pass
