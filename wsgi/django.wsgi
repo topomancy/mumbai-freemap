@@ -5,7 +5,7 @@ import sys
  
 project_module = 'geobombay'
 
-root_dir = os.path.normpath(os.path.abspath(os.path.join(os.path.dirname(__file__)))
+root_dir = os.path.normpath(os.path.abspath(os.path.join(os.path.dirname(__file__))))
 
 #using virtualenv's activate_this.py to reorder sys.path
 activate_this = os.path.join(root_dir, 'bin', 'activate_this.py')
