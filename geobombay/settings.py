@@ -111,6 +111,12 @@ STATICFILES_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 )
 
+#Global map / leaflet settings (for django-leaflet plugin we use for admin)
+LEAFLET_CONFIG = {
+    'DEFAULT_CENTER': (19, 72.85521,),
+    'DEFAULT_ZOOM': 11,
+}
+
 try:
     from local_settings import *
 except:
