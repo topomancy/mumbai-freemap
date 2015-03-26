@@ -19,7 +19,7 @@ class Property(models.Model):
     total_due = models.FloatField(blank=True, null=True)
     holders_history = models.TextField(blank=True, null=True)
     stable = models.ForeignKey("Stable")
-    polygon = models.PolygonField(null=True)
+    polygon = models.PolygonField(null=True, blank=True)
     objects = models.GeoManager()
 
     def __unicode__(self):
@@ -32,7 +32,7 @@ class Property(models.Model):
 class Stable(models.Model):
     stable_id = models.IntegerField()
     name = models.CharField(max_length=255)
-    polygon = models.PolygonField(null=True)
+    polygon = models.PolygonField(null=True, blank=True)
     objects = models.GeoManager()
     
     def __unicode__(self):
