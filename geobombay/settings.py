@@ -55,6 +55,7 @@ INSTALLED_APPS = (
     'django.contrib.gis',
     'leaflet',
     'cts',
+    'wards',
 )
 
 MIDDLEWARE_CLASSES = (
