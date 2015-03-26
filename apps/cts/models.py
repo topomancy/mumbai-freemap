@@ -18,7 +18,7 @@ class Property(models.Model):
     grant = models.FloatField(blank=True, null=True)
     total_due = models.FloatField(blank=True, null=True)
     holders_history = models.TextField(blank=True, null=True)
-    stable = models.ForeignKey("Stable")
+    stable = models.ForeignKey("Stable", verbose_name='division')
     polygon = models.PolygonField(null=True, blank=True)
     objects = models.GeoManager()
 
