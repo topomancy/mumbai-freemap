@@ -62,5 +62,8 @@ class Ward(models.Model):
     def __unicode__(self):
         return self.ward_name
 
+    class Meta:
+        verbose_name = 'Greater Mumbai Administrative Ward'
+        verbose_name_plural = 'Greater Mumbai Administrative Wards'
 
 

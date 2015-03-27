@@ -27,6 +27,7 @@ class Property(models.Model):
 
     class Meta:
         verbose_name_plural = "Properties"
+        ordering = ['cs_no']
 
 
 class Stable(models.Model):

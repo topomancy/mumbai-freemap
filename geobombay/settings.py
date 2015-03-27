@@ -112,6 +112,10 @@ STATICFILES_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 )
 
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'templates'),
+)
+
 #Global map / leaflet settings (for django-leaflet plugin we use for admin)
 LEAFLET_CONFIG = {
     'DEFAULT_CENTER': (19, 72.85521,),
