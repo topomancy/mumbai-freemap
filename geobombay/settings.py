@@ -56,6 +56,7 @@ INSTALLED_APPS = (
     'leaflet',
     'cts',
     'wards',
+    'bmc',
 )
 
 MIDDLEWARE_CLASSES = (
