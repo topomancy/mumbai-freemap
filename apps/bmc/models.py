@@ -12,6 +12,9 @@ class LeaseholdPlot(models.Model):
     asset_no = models.IntegerField(blank=True, null=True)
     geometry = models.GeometryField(blank=True, null=True)
 
+    class Meta:
+        verbose_name = 'MCGM Estates Leasehold Plots'
+
     def __unicode__(self):
         return self.lessee
 
@@ -28,6 +31,9 @@ class HolderHistory(models.Model):
 
 class EstateScheme(models.Model):
     name = models.CharField(max_length=255)
+
+    class Meta:
+        verbose_name = 'MCGM Estates Scheme'
 
     def __unicode__(self):
         return self.name
