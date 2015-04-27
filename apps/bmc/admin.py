@@ -8,9 +8,9 @@ class HolderHistoryInline(admin.StackedInline):
 
 
 class LeaseholdPlotAdmin(LeafletGeoAdmin):
-    search_fields = ('lessee', 'cs_no', 'estate_scheme__name', 'asset_no',)
-    list_display = ('lessee', 'cs_no', 'estate_scheme', 'asset_no',)
-    list_editable = ('cs_no',)
+    search_fields = ('lessee', 'cs_no', 'estate_scheme__name', 'plot_no',)
+    list_display = ('lessee', 'cs_no', 'plot_no', 'estate_scheme',)
+    list_editable = ('cs_no', 'plot_no',)
     list_filter = ('estate_scheme',)
     inlines = [HolderHistoryInline]
 
