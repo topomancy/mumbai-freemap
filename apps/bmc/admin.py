@@ -10,12 +10,15 @@ class HolderHistoryInline(admin.StackedInline):
 class LeaseholdPlotAdmin(LeafletGeoAdmin):
     search_fields = ('lessee', 'cs_no', 'estate_scheme__name', 'asset_no',)
     list_display = ('lessee', 'cs_no', 'estate_scheme', 'asset_no',)
+    list_editable = ('cs_no',)
     list_filter = ('estate_scheme',)
     inlines = [HolderHistoryInline]
 
 
 class EstateSchemeAdmin(LeafletGeoAdmin):
     search_fields = ('name',)
+    list_display = ('__unicode__', 'name',)
+    list_editable = ('name',)
 
 
 admin.site.register(LeaseholdPlot, LeaseholdPlotAdmin)
