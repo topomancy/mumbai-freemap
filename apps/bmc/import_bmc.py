@@ -27,3 +27,21 @@ def do():
         lp.asset_no = int(row[29].strip())
         lp.save()
         print lp.lessee
+
+
+def merge_estates():
+    for e in EstateScheme.objects.all():
+        print e.name
+        same_estates = EstateScheme.objects.filter(name=e.name).exclude(id=e.id)
+        for s in same_estates:
+            for plot in s.leaseholdplot_set.all():
+                plot.estate_scheme = e
+                plot.save()
+            s.delete()
+
+
+def remove_estates():
+    for e in EstateScheme.objects.filter(name__contains='REMOVE'):
+        e.delete()
+        
+
