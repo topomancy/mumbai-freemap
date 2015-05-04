@@ -30,7 +30,7 @@ def do():
 
 
 def merge_estates():
-    for e in EstateScheme.objects.all():
+    for e in EstateScheme.objects.distinct('name'):
         print e.name
         same_estates = EstateScheme.objects.filter(name=e.name).exclude(id=e.id)
         for s in same_estates:
@@ -43,5 +43,5 @@ def merge_estates():
 def remove_estates():
     for e in EstateScheme.objects.filter(name__contains='REMOVE'):
         e.delete()
-        
+
 

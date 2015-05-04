@@ -32,6 +32,9 @@ class HolderHistory(models.Model):
 class EstateScheme(models.Model):
     name = models.CharField(max_length=255)
 
+    def no_of_plots(self):
+        return self.leaseholdplot_set.count()
+
     class Meta:
         verbose_name = 'MCGM Estates Scheme'
 

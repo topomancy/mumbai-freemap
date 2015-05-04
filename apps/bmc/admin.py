@@ -17,7 +17,7 @@ class LeaseholdPlotAdmin(LeafletGeoAdmin):
 
 class EstateSchemeAdmin(LeafletGeoAdmin):
     search_fields = ('name',)
-    list_display = ('__unicode__', 'name',)
+    list_display = ('__unicode__', 'name', 'no_of_plots',)
     list_editable = ('name',)
 
 
