@@ -13,7 +13,7 @@ class LeaseholdPlot(models.Model):
     geometry = models.GeometryField(blank=True, null=True)
 
     class Meta:
-        verbose_name = 'MCGM Estates Leasehold Plots'
+        verbose_name = 'MCGM Estates Leasehold Plot'
 
     def __unicode__(self):
         return self.lessee
