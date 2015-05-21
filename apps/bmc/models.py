@@ -59,6 +59,7 @@ class EstateScheme(models.Model):
 
     class Meta:
         verbose_name = 'MCGM Estates Scheme'
+        ordering = ['scheme_number']
 
     def __unicode__(self):
         return self.name
