@@ -22,7 +22,7 @@ class LeaseholdPlotAdmin(LeafletGeoAdmin):
 class EstateSchemeAdmin(LeafletGeoAdmin):
     inlines = [SchemeHistoryInline]
     search_fields = ('name',)
-    list_display = ('__unicode__', 'name', 'no_of_plots',)
+    list_display = ('__unicode__', 'scheme_number', 'name', 'no_of_plots',)
     list_editable = ('name',)
 
 
