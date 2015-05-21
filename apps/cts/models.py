@@ -26,7 +26,7 @@ class Property(models.Model):
         return "%s: %s" % (self.division, self.cs_no,)
 
     class Meta:
-        verbose_name_plural = "Properties"
+        verbose_name = "City Survey Property Card"
         ordering = ['-cs_no']
 
 
@@ -41,4 +41,4 @@ class Stable(models.Model):
 
     class Meta:
         ordering = ['stable_id']
-        verbose_name = 'Division'
+        verbose_name = 'City Survey Division'

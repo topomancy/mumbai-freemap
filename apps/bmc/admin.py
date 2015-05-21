@@ -7,6 +7,10 @@ class HolderHistoryInline(admin.StackedInline):
     model = HolderHistory
 
 
+class SchemeHistoryInline(admin.StackedInline):
+    model = SchemeHistory
+
+
 class LeaseholdPlotAdmin(LeafletGeoAdmin):
     search_fields = ('lessee', 'cs_no', 'estate_scheme__name', 'plot_no',)
     list_display = ('lessee', 'cs_no', 'plot_no', 'estate_scheme',)
@@ -16,6 +20,7 @@ class LeaseholdPlotAdmin(LeafletGeoAdmin):
 
 
 class EstateSchemeAdmin(LeafletGeoAdmin):
+    inlines = [SchemeHistoryInline]
     search_fields = ('name',)
     list_display = ('__unicode__', 'name', 'no_of_plots',)
     list_editable = ('name',)

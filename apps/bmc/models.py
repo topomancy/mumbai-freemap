@@ -1,5 +1,5 @@
 from django.contrib.gis.db import models
-
+import re
 
 class LeaseholdPlot(models.Model):
     lessee = models.CharField(max_length=512)
@@ -29,11 +29,33 @@ class HolderHistory(models.Model):
         return self.text
 
 
+LEASE_BRANCH_CHOICES = (
+    (1, 'I'),
+    (2, 'II'),
+    (3, 'III'),
+    (4, 'IV'),
+    (5, 'V'),
+)
+
 class EstateScheme(models.Model):
     name = models.CharField(max_length=255)
+    scheme_number = models.IntegerField(blank=True, null=True)
+    lease_branch = models.IntegerField(choices=LEASE_BRANCH_CHOICES, blank=True, null=True)
+    declaration_date = models.DateField(blank=True, null=True)
+    notification_date = models.DateField(blank=True, null=True)
+    geometry = models.GeometryField(blank=True, null=True)
+    scheme_map = models.URLField(blank=True, null=True)
 
     def no_of_plots(self):
         return self.leaseholdplot_set.count()
+
+    def populate_scheme_number(self):
+        name = self.name.strip()
+        matches = re.findall(r'\d+$', name)
+        if len(matches) > 0:
+            number = matches[0]
+        self.scheme_number = int(number)
+        self.save()
 
     class Meta:
         verbose_name = 'MCGM Estates Scheme'
@@ -42,3 +64,11 @@ class EstateScheme(models.Model):
         return self.name
 
 
+class SchemeHistory(models.Model):
+    estate_scheme = models.ForeignKey(EstateScheme)
+    text = models.TextField(blank=True, null=True)
+    start_date = models.DateField(blank=True, null=True)
+    end_date = models.DateField(blank=True, null=True)  
+
+    def __unicode__(self):
+        return self.text
