@@ -73,3 +73,6 @@ class SchemeHistory(models.Model):
 
     def __unicode__(self):
         return self.text
+
+    class Meta:
+        verbose_name_plural = "Scheme Histories"
