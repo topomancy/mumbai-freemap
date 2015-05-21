@@ -76,3 +76,18 @@ class SchemeHistory(models.Model):
 
     class Meta:
         verbose_name_plural = "Scheme Histories"
+
+
+class VacantLandTenancy(models.Model):
+    tenant = models.TextField()
+    occupant = models.TextField()
+    rent = models.CharField(max_length=256, blank=True, null=True)
+    land_use = models.CharField(max_length=256)
+    location = models.CharField(max_length=256)
+    geometry = models.GeometryField(blank=True, null=True)
+
+    def __unicode__(self):
+        return self.tenant
+
+    class Meta:
+        verbose_name_plural = "Vacant Land Tenancies"

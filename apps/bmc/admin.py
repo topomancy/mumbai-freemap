@@ -26,5 +26,11 @@ class EstateSchemeAdmin(LeafletGeoAdmin):
     list_editable = ('name',)
 
 
+class VacantLandTenancyAdmin(LeafletGeoAdmin):
+    search_fields = ('tenant', 'occupant', 'land_use', 'location',)
+    list_display = ('tenant', 'occupant', 'land_use', 'rent', 'location',)
+    list_filter = ('land_use',)
+
 admin.site.register(LeaseholdPlot, LeaseholdPlotAdmin)
 admin.site.register(EstateScheme, EstateSchemeAdmin)
+admin.site.register(VacantLandTenancy, VacantLandTenancyAdmin)

@@ -45,3 +45,17 @@ def remove_estates():
         e.delete()
 
 
+def import_vacant_land_tenancies():
+    file_path = join(settings.DATA_DIR, "bmc", "vacant_land_tenancies.csv")
+    reader = csv.DictReader(open(file_path))
+    for row in reader:
+        v = VacantLandTenancy()
+        v.tenant = row['Tenant']
+        v.occupant = row['Occupant']
+        v.rent = row['RentPerAnnum']
+        v.location = row['Location']
+        v.land_use = row['LandUse']
+        v.save()
+        print v.id
+
+
