@@ -54,8 +54,8 @@ class EstateScheme(models.Model):
         matches = re.findall(r'\d+$', name)
         if len(matches) > 0:
             number = matches[0]
-        self.scheme_number = int(number)
-        self.save()
+            self.scheme_number = int(number)
+            self.save()
 
     class Meta:
         verbose_name = 'MCGM Estates Scheme'
