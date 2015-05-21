@@ -48,7 +48,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    'suit', #Django Suit, skin for the admin
+    #'suit', #Django Suit, skin for the admin
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
